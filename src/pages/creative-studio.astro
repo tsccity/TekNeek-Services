@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import catalog from '../data/creative-studio.json';
+---
+<Base title="Creative Personalization Studio | TekNeek Creative" description="Explore personalized drinkware and leatherette gifts, create a concept preview, and request a quote from TekNeek Creative." current="/creative/">
+<section class="subhero studio-hero"><p class="eyebrow">TEKNEEK CREATIVE</p><h1>Creative Studio.</h1><p>Choose something meaningful. Make it yours. Request a personalized quote.</p></section>
+<section class="wrap creative-studio-layout">
+<div class="creative-preview">
+<div class="studio-preview-heading"><span class="eyebrow">YOUR CREATION</span><span>Concept preview · Not a production proof</span></div>
+<canvas id="creativeCanvas" width="900" height="900" role="img" aria-label="Product personalization preview"></canvas>
+<div class="studio-actions"><button class="btn dark" id="creativeDownload" type="button">Download mockup PNG</button><button class="btn studio-outline" id="creativeReset" type="button">Reset design</button></div>
+<p class="studio-help">Product shapes and engraving are illustrative. We verify the exact supplier item, stock, colors, engraving area, and final design before quoting or producing.</p>
+</div>
+<div class="studio-controls">
+<h2>Make it personal.</h2><p class="lede">Start with one of seven product concepts. Final supplier selections will be confirmed by TekNeek.</p>
+<form id="creativeForm">
+<fieldset><legend>01 · Choose a product</legend>
+<label for="creativeCategory">Category</label><select id="creativeCategory"><option value="Drinkware">Drinkware</option><option value="Leatherette">Leatherette</option></select>
+<label for="creativeProduct">Product style</label><select id="creativeProduct"></select>
+<p id="creativeProductNote" class="studio-help"></p>
+<label for="creativeFinish">Color / finish</label><select id="creativeFinish"></select>
+</fieldset>
+<fieldset><legend>02 · Personalize it</legend>
+<label for="creativeText">Name, initials, or message</label><input id="creativeText" type="text" maxlength="42" placeholder="Add a name or short phrase" value="YOUR NAME"/>
+<label for="creativeFont">Lettering style</label><select id="creativeFont"><option value="bold">Bold modern</option><option value="serif">Classic serif</option><option value="script">Elegant italic</option></select>
+<label for="creativeArt">Upload logo or artwork (PNG, JPG, WebP, SVG)</label><input id="creativeArt" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"/>
+<p class="studio-help">Your uploaded artwork stays in this browser. Transparent PNG works best. Engraving previews are monochrome, not a promise of full-color printing.</p>
+<label for="creativeScale">Design size <output id="creativeScaleOut">100%</output></label><input id="creativeScale" type="range" min="50" max="145" value="100"/>
+<label for="creativeRotate">Rotation <output id="creativeRotateOut">0°</output></label><input id="creativeRotate" type="range" min="-25" max="25" value="0"/>
+<p class="studio-help">Drag your design on the preview to reposition it within the suggested engraving area.</p>
+</fieldset>
+<fieldset><legend>03 · Request a quote</legend>
+<label for="creativeName">Your name *</label><input id="creativeName" required autocomplete="name"/>
+<label for="creativeEmail">Email *</label><input id="creativeEmail" type="email" required autocomplete="email"/>
+<label for="creativePhone">Phone (optional)</label><input id="creativePhone" type="tel" autocomplete="tel"/>
+<label for="creativeQuantity">Quantity *</label><input id="creativeQuantity" type="number" min="1" max="10000" value="1" required/>
+<label for="creativeNotes">Other details</label><textarea id="creativeNotes" rows="3" maxlength="800" placeholder="Occasion, deadline, design requests…"></textarea>
+<button class="btn primary studio-submit" type="submit">Prepare quote email →</button>
+<p id="creativeStatus" class="studio-help" aria-live="polite">Your email app will open with your selections. Download the mockup and attach it, along with your original artwork, before sending. No order is placed automatically.</p>
+</fieldset>
+</form></div></section>
+<script type="application/json" id="creativeCatalog" set:html={JSON.stringify(catalog.items).replace(/</g,'\\u003c')}></script>
+<script src="/scripts/creative-studio.js" defer></script>
+</Base>
