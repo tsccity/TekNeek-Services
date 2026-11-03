@@ -45,3 +45,14 @@
 .connect-showcase img{display:block;width:100%;height:auto;border-radius:10px}
 .connect-showcase figcaption{font-size:13px;color:#555;margin-top:10px}
 @media(max-width:600px){.owner-profile{grid-template-columns:1fr}.owner-profile img{max-width:260px}}
+
+/* Final pre-launch responsive, keyboard, and reduced-motion improvements */
+img{max-width:100%}
+.hero-logo{height:auto}
+.card>img{display:block}
+.nav .mobile-menu summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.nav .mobile-menu summary{min-height:44px}
+.mobile-contact{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:900px){.hero h1{overflow-wrap:normal}.nav .brand span{white-space:nowrap}}
+@media(max-width:380px){.nav{gap:5px;padding-inline:9px}.brand{font-size:15px}.brand img{width:31px;height:31px}.brand small{font-size:7px;letter-spacing:2px}.mobile-nav{gap:4px}.mobile-contact{padding-inline:8px;font-size:12px}.mobile-menu summary{padding-inline:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
