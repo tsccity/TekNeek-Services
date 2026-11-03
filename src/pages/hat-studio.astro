@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Hat Mockup Studio | TekNeek Tops & Tees" description="Preview a personalized patch hat, upload your artwork, and request a custom quote from TekNeek Tops & Tees." current="/tops-tees/">
+<section class="subhero studio-hero"><p class="eyebrow">TEKNEEK TOPS &amp; TEES</p><h1>Hat Mockup Studio.</h1><p>Make it yours. Preview your design, then send us the details for a custom quote.</p></section>
+<section class="wrap studio-layout">
+  <div class="studio-preview">
+    <div class="studio-preview-heading"><span class="eyebrow">YOUR PREVIEW</span><span>Concept mockup · Not a production proof</span></div>
+    <canvas id="hatCanvas" width="900" height="750" role="img" aria-label="Custom hat preview. Change the controls to update your mockup."></canvas>
+    <div class="studio-actions"><button id="downloadMockup" class="btn dark" type="button">Download mockup PNG</button><button id="resetDesign" class="btn studio-outline" type="button">Reset design</button></div>
+    <p class="studio-help">Preview is illustrative. Hat colors, patch dimensions, engraving contrast, and placement will be confirmed before production.</p>
+  </div>
+  <div class="studio-controls">
+    <h2>Make it personal.</h2>
+    <p class="lede">Choose a hat, customize the patch, and upload your logo or add a name.</p>
+    <form id="studioForm">
+      <fieldset><legend>01 · Your hat</legend>
+        <label for="hatStyle">Hat style</label><select id="hatStyle"><option value="trucker">Trucker / Richardson-style</option><option value="classic">Classic cap</option></select>
+        <label for="hatColor">Hat color</label><select id="hatColor"><option value="#272a2c">Black / Charcoal</option><option value="#d5d0c5">Stone</option><option value="#66736a">Olive</option><option value="#a7a9a8">Gray</option><option value="#202c47">Navy</option><option value="#78402e">Brown</option></select>
+      </fieldset>
+      <fieldset><legend>02 · Your patch</legend>
+        <label for="patchShape">Patch shape</label><select id="patchShape"><option value="rounded">Rounded rectangle</option><option value="oval">Oval</option><option value="hex">Hexagon</option><option value="circle">Circle</option></select>
+        <label for="patchColor">Patch color</label><select id="patchColor"><option value="#b68150">Leather tan</option><option value="#49332b">Dark brown</option><option value="#262525">Black</option><option value="#c4b8a2">Sand</option><option value="#77736e">Gray</option></select>
+        <label for="patchText">Name or wording</label><input id="patchText" type="text" maxlength="28" placeholder="Your name, business, or phrase" value="YOUR DESIGN" />
+        <label for="artwork">Upload artwork (PNG, JPG, WebP, SVG)</label><input id="artwork" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" />
+        <p class="studio-help">Your artwork stays in your browser. Transparent PNGs work best. For security, SVG uploads are converted to a bitmap for preview.</p>
+        <label for="patchSize">Patch size <output id="sizeLabel">100%</output></label><input id="patchSize" type="range" min="65" max="135" value="100" />
+        <label for="patchRotate">Patch rotation <output id="rotateLabel">0°</output></label><input id="patchRotate" type="range" min="-20" max="20" value="0" />
+        <p class="studio-help">Drag the patch in the preview to adjust its position.</p>
+      </fieldset>
+      <fieldset><legend>03 · Request your quote</legend>
+        <label for="customerName">Your name *</label><input id="customerName" type="text" required autocomplete="name" />
+        <label for="customerEmail">Email *</label><input id="customerEmail" type="email" required autocomplete="email" />
+        <label for="customerPhone">Phone (optional)</label><input id="customerPhone" type="tel" autocomplete="tel" />
+        <label for="quantity">Quantity *</label><select id="quantity" required><option value="1">1 hat</option><option value="2–11">2–11 hats</option><option value="12–23">12–23 hats</option><option value="24–49">24–49 hats</option><option value="50+">50+ hats</option></select>
+        <label for="notes">Anything else?</label><textarea id="notes" rows="3" maxlength="800" placeholder="Deadline, exact hat model, colors, design details…"></textarea>
+        <button class="btn primary studio-submit" type="submit">Prepare quote email →</button>
+        <p id="quoteStatus" class="studio-help" aria-live="polite">This opens your email app with the details filled in. Download your mockup and attach it to the email before sending.</p>
+      </fieldset>
+    </form>
+  </div>
+</section>
+<script src="/scripts/hat-studio.js" defer></script>
+</Base>
