@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import connect from '../data/connect.json';
 ---
-<Base title="Connect | TekNeek Services" current="/connect/">
+<Base title="Managed Backup Internet for Businesses | TekNeek Connect" description="TekNeek Connect offers managed cellular backup internet, automatic failover and recovery, remote monitoring and network integration for eligible West Texas businesses." current="/connect/">
   <section class="subhero"><p class="eyebrow">TEKNEEK DIGITAL / CONNECT</p><h1>{connect.heading}</h1></section>
   <section class="wrap"><p class="lede">{connect.intro}</p><h2>How it works</h2>
     <div class="features">{connect.steps.map(step => <article><h3>{step.title}</h3><p>{step.description}</p></article>)}</div>
