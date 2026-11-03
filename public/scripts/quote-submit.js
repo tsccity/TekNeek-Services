@@ -30,7 +30,8 @@
    const payload=new FormData();
    payload.set('studio',studio);
    for(const key of ['name','email','phone','quantity','notes'])payload.set(key,$(cfg[key]).value);
-   payload.set('details',JSON.stringify(cfg.details()));
+   if(studio==='hat'){payload.set('quantity',({ '1':'1','2–11':'2','12–23':'12','24–49':'24','50+':'50' })[$('quantity').value]||'1');}
+   payload.set('details',JSON.stringify({...cfg.details(),quantitySelection:studio==='hat'?$('quantity').selectedOptions[0].textContent:undefined}));
    payload.set('website','');
    const mockups=await snapshot();
    for(const item of mockups)payload.append('files',item.blob,item.name);
