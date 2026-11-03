@@ -56,3 +56,37 @@ content:
           - { name: description, label: Description, type: text }
           - { name: image, label: Product photo, type: image }
           - { name: featured, label: Feature on homepage, type: boolean }
+  - name: digital
+    label: Digital Services
+    type: file
+    path: src/data/digital.json
+    format: json
+    fields:
+      - { name: heading, label: Page heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: services
+        label: Services
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Service title, type: string }
+          - { name: description, label: Service description, type: text }
+          - { name: link, label: Internal link (optional), type: string }
+  - name: connect
+    label: TekNeek Connect
+    type: file
+    path: src/data/connect.json
+    format: json
+    fields:
+      - { name: heading, label: Page heading, type: string }
+      - { name: intro, label: Introduction, type: text }
+      - name: steps
+        label: How it works
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Step title, type: string }
+          - { name: description, label: Step description, type: text }
+      - { name: businessHeading, label: Business section heading, type: string }
+      - { name: businessDescription, label: Business section description, type: text }
+      - { name: notice, label: Important service limitations, type: text }
