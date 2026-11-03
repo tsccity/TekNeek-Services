@@ -5,6 +5,12 @@
       "description": "Custom Tumbler",
       "image": "/assets/rhrtumblers1.jpg",
       "featured": false
+    },
+    {
+      "title": "Personalized Engraved Tumblers",
+      "description": "Custom drinkware engraved with names, monograms, meaningful messages, and personal designs.",
+      "image": "/assets/tekneek-personalized-engraved-tumblers.webp",
+      "featured": true
     }
   ]
 }
