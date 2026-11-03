@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "title": "Custom Patch Hats",
+      "description": "Personalized patch hats created for customers.",
+      "image": "/assets/hat.png",
+      "featured": true
+    },
+    {
+      "title": "Custom Printed Shirts",
+      "description": "Custom apparel made for teams, businesses, and events.",
+      "image": "/assets/shirts.png",
+      "featured": true
+    }
+  ]
+}
