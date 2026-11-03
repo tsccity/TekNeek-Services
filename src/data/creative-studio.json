@@ -1,0 +1,168 @@
+{
+  "items": [
+    {
+      "id": "tumbler20",
+      "name": "20 oz Tumbler",
+      "category": "Drinkware",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "tumbler",
+      "colors": [
+        {
+          "name": "Stainless",
+          "hex": "#b4b7b8"
+        },
+        {
+          "name": "Black",
+          "hex": "#292c30"
+        },
+        {
+          "name": "White",
+          "hex": "#e8e6e1"
+        },
+        {
+          "name": "Navy",
+          "hex": "#293e5b"
+        }
+      ],
+      "description": "Everyday personalized tumbler"
+    },
+    {
+      "id": "tumbler30",
+      "name": "30 oz Tumbler",
+      "category": "Drinkware",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "tumbler",
+      "colors": [
+        {
+          "name": "Black",
+          "hex": "#292c30"
+        },
+        {
+          "name": "White",
+          "hex": "#e8e6e1"
+        },
+        {
+          "name": "Teal",
+          "hex": "#4a8887"
+        }
+      ],
+      "description": "Larger insulated drinkware"
+    },
+    {
+      "id": "handled40",
+      "name": "40 oz Handled Tumbler",
+      "category": "Drinkware",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "handled",
+      "colors": [
+        {
+          "name": "Black",
+          "hex": "#292c30"
+        },
+        {
+          "name": "White",
+          "hex": "#e8e6e1"
+        },
+        {
+          "name": "Pink",
+          "hex": "#d7a9af"
+        }
+      ],
+      "description": "Large tumbler with handle"
+    },
+    {
+      "id": "lowball10",
+      "name": "10 oz Lowball",
+      "category": "Drinkware",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "lowball",
+      "colors": [
+        {
+          "name": "Stainless",
+          "hex": "#b4b7b8"
+        },
+        {
+          "name": "Black",
+          "hex": "#292c30"
+        },
+        {
+          "name": "White",
+          "hex": "#e8e6e1"
+        }
+      ],
+      "description": "Compact personalized drinkware"
+    },
+    {
+      "id": "walletbrown",
+      "name": "Brown Bifold Wallet",
+      "category": "Leatherette",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "wallet",
+      "colors": [
+        {
+          "name": "Brown",
+          "hex": "#805137"
+        },
+        {
+          "name": "Dark Brown",
+          "hex": "#473126"
+        }
+      ],
+      "description": "Personalized bifold wallet"
+    },
+    {
+      "id": "walletblack",
+      "name": "Black Bifold Wallet",
+      "category": "Leatherette",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "wallet",
+      "colors": [
+        {
+          "name": "Black",
+          "hex": "#272626"
+        },
+        {
+          "name": "Black / Gold",
+          "hex": "#38322a"
+        }
+      ],
+      "description": "Classic wallet with custom engraving"
+    },
+    {
+      "id": "journal",
+      "name": "Leatherette Journal",
+      "category": "Leatherette",
+      "supplier": "To verify",
+      "sku": "",
+      "status": "preview",
+      "kind": "journal",
+      "colors": [
+        {
+          "name": "Tan",
+          "hex": "#b37d52"
+        },
+        {
+          "name": "Brown",
+          "hex": "#704c36"
+        },
+        {
+          "name": "Black",
+          "hex": "#292929"
+        }
+      ],
+      "description": "Personalized notebook cover"
+    }
+  ]
+}
