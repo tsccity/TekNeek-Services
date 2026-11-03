@@ -65,3 +65,9 @@ img{max-width:100%}
 
 /* Creative Studio */
 .creative-studio-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(310px,1fr);gap:38px;align-items:start}.creative-preview{position:sticky;top:20px}.creative-preview canvas{display:block;width:100%;height:auto;border:1px solid #ded9ce;border-radius:12px;touch-action:none}@media(max-width:900px){.creative-studio-layout{grid-template-columns:1fr}.creative-preview{position:static}}
+
+/* Match clipboard button to the other homepage contact links */
+.contact-strip .copy-email-btn{background:transparent;color:var(--white);border:1px solid #8a8170;font:inherit;font-weight:750;cursor:pointer;appearance:none}
+.contact-strip .copy-email-btn:hover{background:#ffffff12}
+.contact-strip .copy-email-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.copy-email-status:empty{display:none}
