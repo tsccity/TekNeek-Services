@@ -1,4 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import connect from '../data/connect.json';
 ---
-<Base title="Connect | TekNeek Services" current="/connect/"><section class="subhero"><p class="eyebrow">TEKNEEK DIGITAL / CONNECT</p><h1>When your internet goes down, have a backup plan.</h1></section><section class="wrap"><p class="lede">TekNeek Connect is managed cellular backup internet for businesses that depend on connectivity. It's a backup for your primary connection, not a replacement for it.</p><h2>How it works</h2><div class="features"><article><h3>1. Primary Internet</h3><p>Your existing service handles normal business traffic.</p></article><article><h3>2. Automatic Failover</h3><p>Compatible equipment can switch essential traffic to cellular backup after a primary outage.</p></article><article><h3>3. Managed Monitoring</h3><p>Remote monitoring helps identify issues and manage the service.</p></article><article><h3>4. Automatic Recovery</h3><p>Traffic can return to primary service according to the configured policy when service recovers.</p></article></div><h2>Built around your business</h2><p>Gateway setup, firewall integration, failover testing, and optional static IP service are tailored to your site.</p><div class="notice"><strong>Important:</strong> Cellular coverage, speed, data allowance, application compatibility, and availability vary by site, carrier, plan, and equipment. Backup capacity may be limited to essential operations.</div><p><a class="btn dark" href="https://m.me/TekNeekServices" target="_blank" rel="noopener noreferrer">Ask About TekNeek Connect ↗</a></p></section></Base>
+<Base title="Connect | TekNeek Services" current="/connect/">
+  <section class="subhero"><p class="eyebrow">TEKNEEK DIGITAL / CONNECT</p><h1>{connect.heading}</h1></section>
+  <section class="wrap"><p class="lede">{connect.intro}</p><h2>How it works</h2>
+    <div class="features">{connect.steps.map(step => <article><h3>{step.title}</h3><p>{step.description}</p></article>)}</div>
+    <h2>{connect.businessHeading}</h2><p>{connect.businessDescription}</p>
+    <div class="notice"><strong>Important:</strong> {connect.notice}</div>
+    <p><a class="btn dark" href="https://m.me/TekNeekServices" target="_blank" rel="noopener noreferrer">Ask About TekNeek Connect ↗</a></p>
+  </section>
+</Base>
