@@ -1,0 +1,28 @@
+media:
+  input: public/assets
+  output: /assets
+content:
+  - name: homepage
+    label: Homepage Content
+    type: file
+    path: src/data/home.json
+    format: json
+    fields:
+      - { name: intro, label: Homepage introduction, type: text }
+      - { name: servicesIntro, label: Services introduction, type: text }
+      - { name: workHeading, label: Work gallery heading, type: string }
+      - { name: contactIntro, label: Contact introduction, type: text }
+  - name: catalogs
+    label: Creative Catalog Links
+    type: file
+    path: src/data/catalogs.json
+    format: json
+    fields:
+      - name: items
+        label: Catalogs
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Catalog name, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: url, label: External URL, type: string }
