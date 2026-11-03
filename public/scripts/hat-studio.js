@@ -1,7 +1,6 @@
 (() => {
  const $=id=>document.getElementById(id),canvas=$('hatCanvas'),ctx=canvas.getContext('2d');
  const fields=['hatStyle','hatColor','patchShape','patchColor','patchText','patchSize','patchRotate'];
- const base=new Image();base.src='/assets/hat.png';base.onload=draw;
  let artwork=null,position={x:450,y:350},dragging=false;
  const color=id=>$(id).value;
  function path(shape,w,h){
