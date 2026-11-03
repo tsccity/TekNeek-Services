@@ -25,7 +25,7 @@ function sync(){const d=sides[side];$('designSide').value=side;$('shirtText').va
 function setSide(s){side=s;sync();}
 document.querySelectorAll('.shirt-side').forEach(b=>b.addEventListener('click',()=>setSide(b.dataset.side)));
 $('designSide').addEventListener('change',()=>setSide(v('designSide')));
-function place(p){const d=sides[side];d.placement=p;d.position={center:{x:450,y:405},left:{x:365,y:325},right:{x:535,y:325},upper:{x:450,y:280}}[p];if(p==='left'||p==='right')d.size=Math.min(d.size,60);sync();}
+function place(p){const d=sides[side];d.placement=p;d.position={center:{x:450,y:405},left:{x:535,y:325},right:{x:365,y:325},upper:{x:450,y:280}}[p];if(p==='left'||p==='right')d.size=Math.min(d.size,60);sync();}
 $('placement').addEventListener('change',()=>place(v('placement')));
 $('shirtText').addEventListener('input',()=>{const d=sides[side];d.text=v('shirtText');if(d.text)d.art=null;draw();});
 $('textColor').addEventListener('change',()=>{sides[side].textColor=v('textColor');draw();});
