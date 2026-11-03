@@ -37,10 +37,11 @@ import Base from '../layouts/Base.astro';
  <label for="shirtQuantity">Total quantity *</label><input id="shirtQuantity" type="number" min="1" max="10000" value="1" required />
  <label for="shirtSizes">Size breakdown (if known)</label><input id="shirtSizes" placeholder="e.g. 2 S, 4 M, 4 L, 2 XL" />
  <label for="shirtNotes">Other details</label><textarea id="shirtNotes" rows="3" maxlength="800" placeholder="Deadline, sizes, special requests…"></textarea>
- <button class="btn primary studio-submit" type="submit">Prepare quote email →</button>
+ <button class="btn primary studio-submit" type="submit">Request my quote →</button>
  <p class="studio-help" id="shirtQuoteStatus" aria-live="polite">Opens your email app with your choices filled in. Download front/back mockups and attach them before sending.</p>
  </fieldset>
  </form>
 </div></section>
 <script src="/scripts/tshirt-studio.js" defer></script>
+<script src="/scripts/quote-submit.js" defer></script>
 </Base>
