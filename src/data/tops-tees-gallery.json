@@ -11,6 +11,18 @@
       "description": "Custom apparel made for teams, businesses, and events.",
       "image": "/assets/shirts.png",
       "featured": true
+    },
+    {
+      "title": "Custom Richardson Patch Hats",
+      "description": "Personalized leatherette patches on premium Richardson trucker hats, made to represent your brand.",
+      "image": "/assets/tekneek-custom-richardson-patch-hats.webp",
+      "featured": true
+    },
+    {
+      "title": "Custom Hat & Patch Options",
+      "description": "A look at cap styles, leatherette patch colors, and other options for creating something uniquely yours.",
+      "image": "/assets/tekneek-custom-patch-hats-and-laser-items.webp",
+      "featured": false
     }
   ]
 }
