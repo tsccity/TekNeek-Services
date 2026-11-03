@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="T-Shirt Mockup Studio | TekNeek Tops & Tees" description="Design a custom T-shirt, preview front and back artwork, and request a personalized quote from TekNeek Tops & Tees." current="/tops-tees/">
+<section class="subhero studio-hero"><p class="eyebrow">TEKNEEK TOPS &amp; TEES</p><h1>T-Shirt Studio.</h1><p>Your idea. Your shirt. Preview it before requesting a quote.</p></section>
+<section class="wrap studio-layout">
+<div class="studio-preview">
+ <div class="studio-preview-heading"><span class="eyebrow">YOUR SHIRT PREVIEW</span><span>Illustrative mockup · Not a production proof</span></div>
+ <div class="shirt-side-switch"><button type="button" class="shirt-side active" data-side="front" aria-pressed="true">Front</button><button type="button" class="shirt-side" data-side="back" aria-pressed="false">Back</button></div>
+ <canvas id="shirtCanvas" width="900" height="900" role="img" aria-label="T-shirt design preview; use the controls and drag the artwork to position it."></canvas>
+ <div class="studio-actions"><button class="btn dark" id="downloadFront" type="button">Download front PNG</button><button class="btn dark" id="downloadBack" type="button">Download back PNG</button><button class="btn studio-outline" id="resetShirt" type="button">Reset design</button></div>
+ <p class="studio-help">The mockup is for visualization only. Print method, artwork preparation, actual garment shade, and placement will be confirmed with you before production.</p>
+</div>
+<div class="studio-controls">
+ <h2>Make it yours.</h2><p class="lede">Choose your shirt, add artwork or lettering, and preview both sides.</p>
+ <form id="shirtForm">
+ <fieldset><legend>01 · Choose your shirt</legend>
+ <label for="shirtType">Shirt style</label><select id="shirtType"><option value="crew">Classic crew-neck T-shirt</option><option value="long">Long-sleeve T-shirt</option></select>
+ <label for="shirtColor">Shirt color</label><select id="shirtColor"><option value="#202124">Black</option><option value="#f7f6f1">White</option><option value="#73777a">Heather gray</option><option value="#223956">Navy</option><option value="#7b1f29">Maroon</option><option value="#d7c8aa">Sand</option><option value="#3c594b">Forest green</option><option value="#b7352e">Red</option></select>
+ <label for="printMethod">Preferred decoration</label><select id="printMethod"><option value="recommend">Recommend the best method</option><option value="dtf">Full-color DTF transfer</option><option value="other">Other / discuss with TekNeek</option></select>
+ </fieldset>
+ <fieldset><legend>02 · Customize your design</legend>
+ <label for="designSide">Editing side</label><select id="designSide"><option value="front">Front</option><option value="back">Back</option></select>
+ <label for="placement">Design placement</label><select id="placement"><option value="center">Center chest / full front</option><option value="left">Left chest</option><option value="right">Right chest</option><option value="upper">Upper center</option></select>
+ <label for="shirtText">Text on selected side</label><input id="shirtText" maxlength="40" placeholder="Your name, phrase, or brand" />
+ <label for="textColor">Lettering color</label><select id="textColor"><option value="#ffffff">White</option><option value="#101214">Black</option><option value="#c99a2e">Gold</option><option value="#cc3933">Red</option><option value="#2778b9">Blue</option></select>
+ <label for="shirtArtwork">Upload artwork for selected side (PNG, JPG, WebP, SVG)</label><input id="shirtArtwork" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" />
+ <p class="studio-help">Artwork stays in your browser. Transparent PNG works best. You can use different designs on the front and back.</p>
+ <label for="designSize">Design size <output id="shirtSizeLabel">100%</output></label><input id="designSize" type="range" min="35" max="150" value="100" />
+ <label for="designRotate">Rotation <output id="shirtRotateLabel">0°</output></label><input id="designRotate" type="range" min="-25" max="25" value="0" />
+ <p class="studio-help">Drag your design directly on the shirt to fine-tune its placement.</p>
+ </fieldset>
+ <fieldset><legend>03 · Request a quote</legend>
+ <label for="shirtName">Your name *</label><input id="shirtName" required autocomplete="name" />
+ <label for="shirtEmail">Email *</label><input id="shirtEmail" type="email" required autocomplete="email" />
+ <label for="shirtPhone">Phone (optional)</label><input id="shirtPhone" type="tel" autocomplete="tel" />
+ <label for="shirtQuantity">Total quantity *</label><input id="shirtQuantity" type="number" min="1" max="10000" value="1" required />
+ <label for="shirtSizes">Size breakdown (if known)</label><input id="shirtSizes" placeholder="e.g. 2 S, 4 M, 4 L, 2 XL" />
+ <label for="shirtNotes">Other details</label><textarea id="shirtNotes" rows="3" maxlength="800" placeholder="Deadline, sizes, special requests…"></textarea>
+ <button class="btn primary studio-submit" type="submit">Prepare quote email →</button>
+ <p class="studio-help" id="shirtQuoteStatus" aria-live="polite">Opens your email app with your choices filled in. Download front/back mockups and attach them before sending.</p>
+ </fieldset>
+ </form>
+</div></section>
+<script src="/scripts/tshirt-studio.js" defer></script>
+</Base>
