@@ -62,3 +62,6 @@ img{max-width:100%}
 .studio-banner{padding:26px 30px;margin:28px 0;background:#eae4d7;border-radius:10px}.studio-banner h2{font-size:30px;margin:0}.studio-banner p{color:#4b4b4b}
 /* T-shirt studio uses the same responsive studio layout as the Hat Studio */
 .shirt-side-switch{display:flex;gap:8px;margin-bottom:12px}.shirt-side{padding:10px 22px;border:1px solid #bcb5a7;background:#fff;color:#101214;border-radius:6px;font:inherit;font-weight:750;cursor:pointer}.shirt-side.active{background:#101214;color:#fff;border-color:#101214}.shirt-side:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Creative Studio */
+.creative-studio-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(310px,1fr);gap:38px;align-items:start}.creative-preview{position:sticky;top:20px}.creative-preview canvas{display:block;width:100%;height:auto;border:1px solid #ded9ce;border-radius:12px;touch-action:none}@media(max-width:900px){.creative-studio-layout{grid-template-columns:1fr}.creative-preview{position:static}}
