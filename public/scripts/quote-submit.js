@@ -27,7 +27,10 @@
   pending=true;submit.disabled=true;submit.textContent='Sending quote request…';
   status.textContent='Saving your design and sending your quote request securely…';
   try{
+   const token=form.querySelector('[name="cf-turnstile-response"]')?.value;
+   if(!token)throw new Error('Please complete the security verification before submitting.');
    const payload=new FormData();
+   payload.set('cf-turnstile-response',token);
    payload.set('studio',studio);
    for(const key of ['name','email','phone','quantity','notes'])payload.set(key,$(cfg[key]).value);
    if(studio==='hat'){payload.set('quantity',({ '1':'1','2–11':'2','12–23':'12','24–49':'24','50+':'50' })[$('quantity').value]||'1');}
@@ -49,6 +52,7 @@
    submit.textContent='Quote request sent';
   }catch(error){
    status.textContent=error.message+' Your design is still here; you can retry.';
+   if(window.turnstile)window.turnstile.reset(form.querySelector('.cf-turnstile'));
    submit.disabled=false;submit.textContent='Request my quote →';
   }finally{pending=false;}
  },true);
