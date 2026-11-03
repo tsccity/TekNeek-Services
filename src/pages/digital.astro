@@ -1,4 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import digital from '../data/digital.json';
 ---
-<Base title="Digital | TekNeek Services" current="/digital/"><section class="subhero"><p class="eyebrow">TEKNEEK DIGITAL</p><h1>Technology that works for you.</h1></section><section class="wrap"><p class="lede">Practical computer support, business IT, networking, and connectivity services with a personal point of contact.</p><div class="features"><article><h3>Computer &amp; IT Support</h3><p>Help troubleshooting, maintaining, and improving everyday business technology.</p></article><article><h3>Networking &amp; Connectivity</h3><p>Network planning, configuration, troubleshooting, and improvements.</p></article><article><h3>Business Technology</h3><p>Solutions that support your day-to-day operations.</p></article><article><h3>TekNeek Connect</h3><p>Managed cellular backup internet for business continuity.</p><a href="/connect/">Explore TekNeek Connect →</a></article></div><a class="btn dark" href="https://m.me/TekNeekServices" target="_blank" rel="noopener noreferrer">Discuss a technology project ↗</a></section></Base>
+<Base title="Digital | TekNeek Services" current="/digital/">
+  <section class="subhero"><p class="eyebrow">TEKNEEK DIGITAL</p><h1>{digital.heading}</h1></section>
+  <section class="wrap"><p class="lede">{digital.intro}</p>
+    <div class="features">{digital.services.map(service => <article><h3>{service.title}</h3><p>{service.description}</p>{service.link && service.link.startsWith('/') && <a href={service.link}>Explore TekNeek Connect →</a>}</article>)}</div>
+    <a class="btn dark" href="https://m.me/TekNeekServices" target="_blank" rel="noopener noreferrer">Discuss a technology project ↗</a>
+  </section>
+</Base>
