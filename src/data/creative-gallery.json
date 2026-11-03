@@ -1,3 +1,10 @@
 {
-  "items": []
+  "items": [
+    {
+      "title": "Custom Tumbler",
+      "description": "Custom Tumbler",
+      "image": "/assets/rhrtumblers1.jpg",
+      "featured": false
+    }
+  ]
 }
