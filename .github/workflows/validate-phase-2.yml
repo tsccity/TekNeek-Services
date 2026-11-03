@@ -24,3 +24,5 @@ jobs:
           test -f dist/_worker.js/index.js
           grep -q '"binding": "QUOTE_FILES"' wrangler.jsonc
           grep -q '"directory": "dist"' wrangler.jsonc
+          test -f src/pages/api/quote.js
+          grep -q 'RESEND_API_KEY' src/pages/api/quote.js
