@@ -90,3 +90,29 @@ content:
       - { name: businessHeading, label: Business section heading, type: string }
       - { name: businessDescription, label: Business section description, type: text }
       - { name: notice, label: Important service limitations, type: text }
+  - name: creative-studio
+    label: Creative Studio Product Concepts
+    type: file
+    path: src/data/creative-studio.json
+    format: json
+    fields:
+      - name: items
+        label: Product concepts
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Unique ID, type: string }
+          - { name: name, label: Product name, type: string }
+          - { name: category, label: Category (Drinkware or Leatherette), type: string }
+          - { name: supplier, label: Verified supplier, type: string }
+          - { name: sku, label: Verified supplier SKU, type: string }
+          - { name: status, label: Status, type: string }
+          - { name: kind, label: Preview shape (tumbler, handled, lowball, wallet, journal), type: string }
+          - { name: description, label: Product description, type: text }
+          - name: colors
+            label: Available finishes
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Finish name, type: string }
+              - { name: hex, label: Hex color, type: string }
