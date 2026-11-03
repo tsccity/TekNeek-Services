@@ -36,3 +36,12 @@
  .nav .mobile-nav{flex-shrink:0}
  .nav .mobile-menu nav{width:min(280px,calc(100vw - 24px));max-width:calc(100vw - 24px);order:initial;flex-wrap:nowrap;overflow-x:visible;padding:8px}
 }
+
+/* Responsive owner introduction and Connect imagery */
+.owner-profile{display:grid;grid-template-columns:minmax(180px,280px) 1fr;align-items:center;gap:30px;margin-top:50px;padding-top:36px;border-top:1px solid #ddd5c7}
+.owner-profile img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:10px}
+.owner-profile h2{font-size:clamp(28px,3vw,38px)}
+.connect-showcase{margin:32px 0 44px;max-width:850px}
+.connect-showcase img{display:block;width:100%;height:auto;border-radius:10px}
+.connect-showcase figcaption{font-size:13px;color:#555;margin-top:10px}
+@media(max-width:600px){.owner-profile{grid-template-columns:1fr}.owner-profile img{max-width:260px}}
