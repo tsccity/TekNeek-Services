@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "Leatherette Gifts",
+      "description": "Wallets, portfolios, and personalized accessories.",
+      "url": "https://premierleathergifts.com"
+    },
+    {
+      "title": "Personalized Gifts",
+      "description": "Gift ideas and keepsakes for meaningful occasions.",
+      "url": "https://premierpersonalizedgifts.com"
+    },
+    {
+      "title": "Polar Camel Drinkware",
+      "description": "Insulated tumblers and customizable drinkware.",
+      "url": "https://polarcamels.com"
+    },
+    {
+      "title": "Awards & Recognition",
+      "description": "Plaques, trophies, and recognition products.",
+      "url": "https://premiersportawards.com"
+    }
+  ]
+}
