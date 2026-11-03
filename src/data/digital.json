@@ -1,0 +1,23 @@
+{
+  "heading": "Technology that works for you.",
+  "intro": "Practical computer support, business IT, networking, and connectivity services with a personal point of contact.",
+  "services": [
+    {
+      "title": "Computer & IT Support",
+      "description": "Help troubleshooting, maintaining, and improving everyday business technology."
+    },
+    {
+      "title": "Networking & Connectivity",
+      "description": "Network planning, configuration, troubleshooting, and improvements."
+    },
+    {
+      "title": "Business Technology",
+      "description": "Solutions that support your day-to-day operations."
+    },
+    {
+      "title": "TekNeek Connect",
+      "description": "Managed cellular backup internet for business continuity.",
+      "link": "/connect/"
+    }
+  ]
+}
