@@ -19,10 +19,22 @@ export async function POST({request,locals}){
   const length=Number(request.headers.get('content-length')||0);
   if(length>MAX_TOTAL)return json({error:'Request is too large.'},413);
   const env=locals.runtime?.env;
-  if(!env?.QUOTE_FILES||!env?.RESEND_API_KEY)return json({error:'Quote service is not yet configured.'},503);
+  if(!env?.QUOTE_FILES||!env?.RESEND_API_KEY||!env?.TURNSTILE_SECRET_KEY)return json({error:'Quote service is not yet configured.'},503);
   let form;
   try{form=await request.formData();}catch{return json({error:'Invalid form submission.'},400);}
-  if(safe(form.get('website')))return json({ok:true});
+  if(safe(form.get('website')))return json({error:'Invalid submission.'},400);
+  const token=safe(form.get('cf-turnstile-response'),2048);
+  if(!token)return json({error:'Please complete the security verification.'},400);
+  let verified=false;
+  try{
+    const verify=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams({secret:env.TURNSTILE_SECRET_KEY,response:token,remoteip:request.headers.get('CF-Connecting-IP')||''})
+    });
+    if(verify.ok){const outcome=await verify.json();verified=outcome.success===true&&(!outcome.hostname||['tekneekservices.com','www.tekneekservices.com','tekneek-services.office-ba5.workers.dev'].includes(outcome.hostname));}
+  }catch(error){console.error('Turnstile verification unavailable',error);}
+  if(!verified)return json({error:'Security verification failed or expired. Please retry.'},403);
   const studio=safe(form.get('studio'),30);
   if(!['hat','tshirt','creative'].includes(studio))return json({error:'Unknown studio.'},400);
   const name=safe(form.get('name'),120),email=safe(form.get('email'),254),phone=safe(form.get('phone'),80),quantity=safe(form.get('quantity'),30);
