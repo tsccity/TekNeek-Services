@@ -26,3 +26,33 @@ content:
           - { name: title, label: Catalog name, type: string }
           - { name: description, label: Description, type: text }
           - { name: url, label: External URL, type: string }
+  - name: tops-tees-gallery
+    label: Tops & Tees Gallery
+    type: file
+    path: src/data/tops-tees-gallery.json
+    format: json
+    fields:
+      - name: items
+        label: Projects
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Project name, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: image, label: Project photo, type: image }
+          - { name: featured, label: Feature on homepage, type: boolean }
+  - name: creative-gallery
+    label: Creative Gallery
+    type: file
+    path: src/data/creative-gallery.json
+    format: json
+    fields:
+      - name: items
+        label: Projects
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Product name, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: image, label: Product photo, type: image }
+          - { name: featured, label: Feature on homepage, type: boolean }
