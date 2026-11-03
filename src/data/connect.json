@@ -1,0 +1,25 @@
+{
+  "heading": "When your internet goes down, have a backup plan.",
+  "intro": "TekNeek Connect is managed cellular backup internet for businesses that depend on connectivity. It's a backup for your primary connection, not a replacement for it.",
+  "steps": [
+    {
+      "title": "1. Primary Internet",
+      "description": "Your existing service handles normal business traffic."
+    },
+    {
+      "title": "2. Automatic Failover",
+      "description": "Compatible equipment can switch essential traffic to cellular backup after a primary outage."
+    },
+    {
+      "title": "3. Managed Monitoring",
+      "description": "Remote monitoring helps identify issues and manage the service."
+    },
+    {
+      "title": "4. Automatic Recovery",
+      "description": "Traffic can return to primary service according to the configured policy when service recovers."
+    }
+  ],
+  "businessHeading": "Built around your business",
+  "businessDescription": "Gateway setup, firewall integration, failover testing, and optional static IP service are tailored to your site.",
+  "notice": "Cellular coverage, speed, data allowance, application compatibility, and availability vary by site, carrier, plan, and equipment. Backup capacity may be limited to essential operations."
+}
