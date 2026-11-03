@@ -34,6 +34,7 @@ import Base from '../layouts/Base.astro';
         <label for="customerPhone">Phone (optional)</label><input id="customerPhone" type="tel" autocomplete="tel" />
         <label for="quantity">Quantity *</label><select id="quantity" required><option value="1">1 hat</option><option value="2–11">2–11 hats</option><option value="12–23">12–23 hats</option><option value="24–49">24–49 hats</option><option value="50+">50+ hats</option></select>
         <label for="notes">Anything else?</label><textarea id="notes" rows="3" maxlength="800" placeholder="Deadline, exact hat model, colors, design details…"></textarea>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFykn02YL5-Y1JGF"></div>
         <button class="btn primary studio-submit" type="submit">Request my quote →</button>
         <p id="quoteStatus" class="studio-help" aria-live="polite">This opens your email app with the details filled in. Download your mockup and attach it to the email before sending.</p>
       </fieldset>
@@ -42,4 +43,5 @@ import Base from '../layouts/Base.astro';
 </section>
 <script src="/scripts/hat-studio.js" defer></script>
 <script src="/scripts/quote-submit.js" defer></script>
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </Base>
