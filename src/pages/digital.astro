@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import digital from '../data/digital.json';
 ---
-<Base title="Digital | TekNeek Services" current="/digital/">
+<Base title="Business IT & Network Services | TekNeek Digital, West Texas" description="TekNeek Digital provides practical computer support, business IT, networking and connectivity solutions for businesses in Colorado City and West Texas." current="/digital/">
   <section class="subhero"><p class="eyebrow">TEKNEEK DIGITAL</p><h1>{digital.heading}</h1></section>
   <section class="wrap"><p class="lede">{digital.intro}</p>
     <div class="features">{digital.services.map(service => <article><h3>{service.title}</h3><p>{service.description}</p>{service.link && service.link.startsWith('/') && <a href={service.link}>Explore TekNeek Connect →</a>}</article>)}</div>
