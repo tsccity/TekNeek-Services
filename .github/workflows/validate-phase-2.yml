@@ -19,6 +19,13 @@ jobs:
         run: npm run build
       - name: Validate Wrangler bundle without deploying
         run: npx wrangler deploy --dry-run --outdir .wrangler-validation
+      - name: Validate isolated staging bundle without deploying
+        run: npx wrangler deploy --config wrangler.staging.jsonc --dry-run --outdir .wrangler-staging-validation
+      - name: Check staging isolation
+        run: |
+          grep -q '"name": "tekneek-services-staging"' wrangler.staging.jsonc
+          grep -q '"bucket_name": "tekneek-quote-files-staging"' wrangler.staging.jsonc
+          grep -q '"binding": "ASSETS"' wrangler.staging.jsonc
       - name: Check generated Worker and binding
         run: |
           test -f dist/_worker.js/index.js
