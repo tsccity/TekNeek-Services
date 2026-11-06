@@ -32,7 +32,7 @@ export async function POST({request,locals}){
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body:new URLSearchParams({secret:env.TURNSTILE_SECRET_KEY,response:token,remoteip:request.headers.get('CF-Connecting-IP')||''})
     });
-    if(verify.ok){const outcome=await verify.json();verified=outcome.success===true&&(!outcome.hostname||['tekneekservices.com','www.tekneekservices.com','tekneek-services.office-ba5.workers.dev'].includes(outcome.hostname));}
+    if(verify.ok){const outcome=await verify.json();verified=outcome.success===true&&(!outcome.hostname||['tekneekservices.com','www.tekneekservices.com','tekneek-services.office-ba5.workers.dev','tekneek-services-staging.office-ba5.workers.dev'].includes(outcome.hostname));}
   }catch(error){console.error('Turnstile verification unavailable',error);}
   if(!verified)return json({error:'Security verification failed or expired. Please retry.'},403);
   const studio=safe(form.get('studio'),30);
