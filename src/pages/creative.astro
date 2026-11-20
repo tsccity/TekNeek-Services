@@ -1,6 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-import catalogs from '../data/catalogs.json';
 import gallery from '../data/creative-gallery.json';
 ---
-<Base title="Personalized Engraved Gifts | TekNeek Creative, West Texas" description="Explore personalized tumblers, engraved gifts, keepsakes and awards from TekNeek Creative in Colorado City, TX. Browse gift ideas and request a custom quote." current="/creative/"><section class="subhero"><p class="eyebrow">TEKNEEK CREATIVE</p><h1>Gifts worth making personal.</h1></section><section class="wrap"><p class="lede">Personalized engraved gifts, keepsakes, awards, and custom creations. Start with a design concept in Creative Studio, or explore more gift ideas below.</p><div class="studio-banner"><h2>Personalize it in Creative Studio.</h2><p>Explore drinkware and leatherette gift concepts, preview your design, and request a custom quote.</p><a class="btn primary" href="/creative-studio/">Open Creative Studio →</a></div>{gallery.items.length > 0 && <><h2>Made personal by TekNeek</h2><div class="project-gallery">{gallery.items.map(item => <article class="project-card"><img src={item.image} alt={item.title} loading="lazy" /><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div></> }<div class="notice"><strong>Browse for inspiration. Order through TekNeek.</strong> Availability, suitability for engraving, and pricing are confirmed when you request a quote.</div><h2>More gift ideas and inspiration</h2><div class="catalogs">{catalogs.items.map(item=><a href={item.url} target="_blank" rel="noopener noreferrer"><strong>{item.title}</strong><span>{item.description}</span><small>Browse catalog ↗</small></a>)}</div><h2>Have something else in mind?</h2><p>Send the product name or item number, desired quantity, and your engraving idea. I'll confirm options and prepare a quote.</p><a class="btn dark" href="https://m.me/TekNeekServices" target="_blank" rel="noopener noreferrer">Ask About Personalization ↗</a></section></Base>
+<Base title="Personalized Engraved Gifts | TekNeek Creative, West Texas" description="Explore personalized drinkware, leatherette gifts, keepsakes, and awards. Browse our extended gift catalog and request a quote from TekNeek Creative." current="/creative/">
+<section class="subhero"><p class="eyebrow">TEKNEEK CREATIVE</p><h1>Make it personal.</h1></section>
+<section class="wrap">
+  <p class="lede">From engraved drinkware to meaningful keepsakes, TekNeek helps turn a great gift idea into something personal. Explore our extended gift catalog, then send us the item number for a custom quote.</p>
+  <div class="studio-banner">
+    <p class="eyebrow">EXTENDED GIFT CATALOG</p>
+    <h2>Find something you love.</h2>
+    <p>Browse drinkware, gifts, awards, office accessories, and more. Note the product number of anything that catches your eye. Prices are confirmed by TekNeek before ordering.</p>
+    <a class="btn primary" href="https://premierpersonalizedgifts.com/?cust=246172&amp;prices=NO" target="_blank" rel="noopener noreferrer">Browse Our Gift Catalog ↗</a>
+  </div>
+  <h2>Found the perfect item?</h2>
+  <p>Send us the <strong>product number</strong>, desired <strong>quantity</strong>, and any <strong>personalization details</strong>. We'll confirm availability, engraving options, and pricing before you order.</p>
+  <div class="actions">
+    <a class="btn primary" href="https://m.me/TekNeekServices" target="_blank" rel="noopener noreferrer">Send a Facebook Message ↗</a>
+    <a class="btn dark" href="mailto:office@tekneekservices.com?subject=TekNeek%20Creative%20-%20Product%20Quote&amp;body=Product%20number%3A%0AQuantity%3A%0APersonalization%20details%3A%0ARequested%20date%3A%0A">Email a Product Number →</a>
+  </div>
+  {gallery.items.length > 0 && <><h2>Made personal by TekNeek</h2><p>See examples of our completed work.</p><div class="project-gallery">{gallery.items.map(item => <article class="project-card"><img src={item.image} alt={item.title} loading="lazy" /><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div></>}
+  <div class="notice"><strong>Have another idea?</strong> Not everything we can personalize is in the catalog. <a href="/contact/">Contact TekNeek</a> and tell us what you're looking for.</div>
+</section>
+</Base>
