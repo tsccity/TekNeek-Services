@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "wolves-baseball",
+    "name": "Colorado Wolves Baseball Hat",
+    "brand": "The Game",
+    "priceCents": 3200,
+    "sizes": [
+      "AXS",
+      "AS",
+      "AM",
+      "AL",
+      "AXL"
+    ],
+    "description": "Proceeds benefit the Mari Gonzales family.",
+    "image": null,
+    "active": true
+  }
+]
