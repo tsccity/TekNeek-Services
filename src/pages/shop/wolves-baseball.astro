@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+const sizes = ['AXS','AS','AM','AL','AXL'];
+---
+<Base title="Wolves Baseball Hat Fundraiser | TekNeek QuickShop" description="Order Colorado Wolves baseball hats for local pickup. Proceeds benefit the Mari Gonzales family.">
+<section class="quickshop">
+<p class="eyebrow">TEKNEEK QUICKSHOP · FUNDRAISER</p>
+<h1>Colorado Wolves Baseball Hats</h1>
+<p>Support the Mari Gonzales family. The Game hats, $32 each. Local pickup through TekNeek Services.</p>
+<form id="hat-order">
+<fieldset><legend>Choose sizes and quantities</legend>
+{sizes.map(size => <label class="quantity"><span>{size}</span><input type="number" name={size} min="0" max="99" step="1" value="0" required /></label>)}
+</fieldset>
+<p class="total">Order total: <output id="total" aria-live="polite">$0.00</output></p>
+<label>Full name<input name="customer" autocomplete="name" required maxlength="100" /></label>
+<label>Phone<input name="phone" type="tel" autocomplete="tel" required maxlength="40" /></label>
+<label>Payment method<select name="payment" required><option value="Venmo">Venmo</option><option value="Cash App">Cash App</option><option value="Square">Credit/debit card (Square)</option></select></label>
+<p>Send your order to TekNeek first. We will confirm availability and payment instructions. Orders are confirmed after payment verification.</p>
+<button class="btn primary" type="submit">Send order by text</button>
+<p id="status" role="status"></p>
+</form>
+</section>
+<script>
+const form = document.querySelector<HTMLFormElement>('#hat-order')!;
+const sizes = ['AXS','AS','AM','AL','AXL'];
+function quantities(){return sizes.map(size=>Number((form.elements.namedItem(size) as HTMLInputElement).value));}
+function total(){return quantities().reduce((a,b)=>a+b,0)*32;}
+form.addEventListener('input',()=>{document.querySelector('#total')!.textContent=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(total());});
+form.addEventListener('submit',event=>{
+event.preventDefault();
+const status=document.querySelector('#status')!;
+const q=quantities();
+if(!form.reportValidity() || q.some(n=>!Number.isInteger(n)||n<0||n>99)||total()===0){status.textContent='Please select at least one hat.';return;}
+const data=new FormData(form);
+const message=['Wolves Hats order', 'Name: '+data.get('customer'), 'Phone: '+data.get('phone'), ...sizes.map((s,i)=>s+': '+q[i]).filter((_,i)=>q[i]>0), 'Total: $'+total().toFixed(2), 'Payment: '+data.get('payment')].join('\n');
+status.textContent='Your text app will open. Send the message to submit your order.';
+window.location.href='sms:+13256448720?body='+encodeURIComponent(message);
+});
+</script>
+<style>
+.quickshop{max-width:680px;margin:0 auto;padding:3rem 1.25rem}
+.quickshop form{display:grid;gap:1rem;margin-top:2rem}
+.quickshop label{display:grid;gap:.4rem;font-weight:600}
+.quickshop input,.quickshop select{font:inherit;padding:.7rem;border:1px solid #a7adb2;border-radius:6px;background:#fff;color:#101214;min-width:0}
+.quickshop fieldset{border:1px solid #a7adb2;border-radius:8px;padding:1rem;display:grid;gap:.6rem}
+.quickshop .quantity{display:flex;align-items:center;justify-content:space-between}
+.quickshop .quantity input{width:6rem}
+.total{font-size:1.4rem;font-weight:700}
+</style>
+</Base>
