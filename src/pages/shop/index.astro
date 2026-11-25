@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import products from '../../data/quickshop.json';
+---
+<Base title="QuickShop | TekNeek Services" description="Shop local merchandise and fundraisers from TekNeek Services.">
+<section class="shop"><p class="eyebrow">TEKNEEK QUICKSHOP</p><h1>Shop local. Support local.</h1><p>Limited-run merchandise and community fundraisers. Local pickup through TekNeek Services.</p><div class="products">{products.filter(p=>p.active).map(p=><article class="product"><p class="eyebrow">FUNDRAISER · {p.brand}</p><h2>{p.name}</h2><p>{p.description}</p><p>Sizes: {p.sizes.join(' · ')}</p><strong>{new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(p.priceCents/100)}</strong><a class="btn primary" href={'/shop/'+p.slug+'/'}>View and order</a></article>)}</div></section>
+<style>.shop{max-width:1100px;margin:auto;padding:3rem 1.25rem}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;margin-top:2rem}.product{border:1px solid #a7adb2;border-radius:12px;padding:1.5rem;display:grid;gap:1rem}.product strong{font-size:1.5rem}.product a{justify-self:start}</style>
+</Base>
