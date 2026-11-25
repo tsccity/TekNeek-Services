@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="QuickShop Administration | TekNeek Services">
+<section class="admin">
+<h1>QuickShop Administration</h1>
+<form id="login"><label>Email <input type="email" name="email" autocomplete="username" required /></label><label>Password <input type="password" name="password" autocomplete="current-password" required /></label><button class="btn primary">Sign in</button></form>
+<p id="status" role="status"></p>
+<section id="dashboard" hidden><button id="logout" class="btn secondary">Sign out</button><h2>Products</h2><div id="products"></div><h2>Recent orders</h2><div id="orders"></div></section>
+</section>
+<script>
+const base='https://hkungdyendvlpuveaepb.supabase.co';
+const key='sb_publishable_uvA0jPNYWxDeN4UZ320ukA_r3n8pdWj';
+let token='';
+const login=document.querySelector<HTMLFormElement>('#login')!;
+const status=document.querySelector<HTMLElement>('#status')!;
+const dashboard=document.querySelector<HTMLElement>('#dashboard')!;
+async function request(path:string, method='GET', body?:unknown){
+ const headers:Record<string,string>={apikey:key,'Content-Type':'application/json'};
+ if(token) headers.Authorization='Bearer '+token;
+ const response=await fetch(base+path,{method,headers,body:body===undefined?undefined:JSON.stringify(body),cache:'no-store'});
+ if(!response.ok) throw new Error('Request failed ('+response.status+')');
+ return response.status===204?null:response.json();
+}
+function clear(){token='';dashboard.hidden=true;login.hidden=false;login.reset();document.querySelector('#products')!.replaceChildren();document.querySelector('#orders')!.replaceChildren();}
+function render(id:string, rows:Record<string,unknown>[], fields:string[]){
+ const target=document.querySelector(id)!;target.replaceChildren();
+ if(!rows.length){target.textContent='No records yet.';return;}
+ const list=document.createElement('ul');
+ for(const row of rows){const item=document.createElement('li');item.textContent=fields.map(field=>String(row[field]??'')).join(' · ');list.append(item);}
+ target.append(list);
+}
+login.addEventListener('submit',async event=>{
+ event.preventDefault();status.textContent='Signing in…';
+ const data=new FormData(login);
+ try{
+ const session=await request('/auth/v1/token?grant_type=password','POST',{email:data.get('email'),password:data.get('password')});
+ token=session.access_token;
+ login.reset();
+ if(await request('/rest/v1/rpc/is_admin','POST',{})!==true)throw new Error('Administrator access required.');
+ const [products,orders]=await Promise.all([request('/rest/v1/products?select=name,price_cents,active&order=name'),request('/rest/v1/orders?select=order_number,customer_name,total_cents,payment_status,order_status&order=created_at.desc&limit=50')]);
+ render('#products',products.map((p:any)=>({...p,price:'$'+(p.price_cents/100).toFixed(2),visibility:p.active?'Active':'Inactive'})),['name','price','visibility']);
+ render('#orders',orders.map((o:any)=>({...o,total:'$'+(o.total_cents/100).toFixed(2)})),['order_number','customer_name','total','payment_status','order_status']);
+ login.hidden=true;dashboard.hidden=false;status.textContent='Signed in as administrator.';
+ }catch{clear();status.textContent='Unable to sign in or load administrator data. Check credentials and permissions.';}
+});
+document.querySelector('#logout')!.addEventListener('click',async()=>{try{await request('/auth/v1/logout','POST');}catch{}finally{clear();status.textContent='Signed out locally.';}});
+</script>
+<style>
+.admin{max-width:900px;margin:auto;padding:3rem 1.25rem}.admin form:not([hidden]){display:grid;gap:1rem;max-width:420px}.admin label{display:grid;gap:.4rem}.admin input{font:inherit;padding:.7rem;border:1px solid #a7adb2;border-radius:6px}.admin li{padding:.7rem;border-bottom:1px solid #a7adb2}.admin h2{margin-top:2rem}
+</style>
+</Base>
